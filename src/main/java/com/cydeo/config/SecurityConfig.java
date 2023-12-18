@@ -32,12 +32,7 @@ public class SecurityConfig {
                         "/user/verify",
                         "/user/verify-user",
                         "/user/reset-password-confirmation",
-//                        "/fragments/**",
-                        "/head",
-                        "/header",
-                        "/javascript",
-                        "/left-sidebar",
-                        "/footer",
+                        "/fragments/**",
                         "/assets/**",
                         "/images/**"
                 ).permitAll()

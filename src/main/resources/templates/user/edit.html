@@ -2,15 +2,15 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="/fragments/head :: head"></head>
+<head th:replace="fragments/head.html"></head>
 
 <body>
 
 <div class="dashboard-main-wrapper">
 
-    <div th:replace="/fragments/header :: header"></div>
+    <div th:replace="/fragments/header.html"></div>
 
-    <div th:replace="/fragments/left-sidebar :: left-sidebar"></div>
+    <div th:replace="/fragments/left-sidebar.html"></div>
 
     <div class="dashboard-wrapper">
 
@@ -231,11 +231,11 @@
 
     </div>
 
-    <div th:replace="/fragments/footer :: footer"></div>
+    <div th:replace="/fragments/footer::footer"></div>
 
 </div>
 
-<div th:replace="/fragments/javascript :: js"></div>
+<div th:replace="/fragments/javascript::js"></div>
 
 </body>
 
