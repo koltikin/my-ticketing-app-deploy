@@ -1,6 +1,8 @@
 package com.cydeo.config;
 
 import lombok.RequiredArgsConstructor;
+import org.flywaydb.core.Flyway;
+import org.flywaydb.core.api.output.MigrateResult;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,6 +12,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import javax.sql.DataSource;
 
 
 @Configuration
@@ -40,4 +44,8 @@ public class WebConfig implements WebMvcConfigurer {
         return new SimpleMailMessage();
     }
 
+    @Bean
+    public MigrateResult migrateResult(DataSource dataSource){
+        return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
+    }
 }
