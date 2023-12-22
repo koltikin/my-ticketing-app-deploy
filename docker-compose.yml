@@ -37,7 +37,9 @@ services:
 
 volumes:
   ticketing_app_data:
+    name: ticketing_app_data # by default volume name is [project-name]_[volume-name]
 
 networks:
   ticketing-app-net:
+    name: ticketing-app-net # by default network name is [project-name]_[network-name]
     driver: bridge
