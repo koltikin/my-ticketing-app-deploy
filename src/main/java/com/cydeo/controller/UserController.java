@@ -53,8 +53,6 @@ public class UserController {
             return "user/create";
         }
         userService.save(user);
-        userService.saveUserConfirmation(user.getUserName());
-        userService.sendUserVerificationEmail(user.getUserName());
 
         return "redirect:/user/create";
     }
