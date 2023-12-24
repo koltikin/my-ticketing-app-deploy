@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${HOSTNAME}:5432/${DB_NAME}
-    username: ${USER_NAME}
-    password: ${PASSWORD}
+    url: jdbc:postgresql://mydbinstance.clq8wogyshd2.eu-central-1.rds.amazonaws.com:5432/ticketing_app_db
+    #url: jdbc:postgresql://${HOSTNAME}:5432/${DB_NAME}
+    username: ziya
+    password: Bismillah
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -15,9 +16,9 @@ spring:
       hibernate:
         format_sql: true
 
-  flyway:
-  baseline-on-migrate: true
-  enabled: false
+#  flyway:
+#  baseline-on-migrate: true
+#  enabled: false
 
   mail:
     host: smtp.gmail.com
@@ -35,8 +36,8 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     cache: false
-#  sql:
-#    init:
-#      mode: always
+  sql:
+    init:
+      mode: always
 
 host-service-port: ${SERVICE_PORT}

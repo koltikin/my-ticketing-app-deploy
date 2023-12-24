@@ -1,8 +1,6 @@
 package com.cydeo.config;
 
 import lombok.RequiredArgsConstructor;
-import org.flywaydb.core.Flyway;
-import org.flywaydb.core.api.output.MigrateResult;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,8 +42,8 @@ public class WebConfig implements WebMvcConfigurer {
         return new SimpleMailMessage();
     }
 
-    @Bean
-    public MigrateResult migrateResult(DataSource dataSource){
-        return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
-    }
+//    @Bean
+//    public MigrateResult migrateResult(DataSource dataSource){
+//        return Flyway.configure().baselineOnMigrate(true).dataSource(dataSource).load().migrate();
+//    }
 }
