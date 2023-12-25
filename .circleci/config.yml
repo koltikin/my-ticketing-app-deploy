@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:11-jdk
+      - image: circleci/openjdk:17-jdk
     working_directory: /tmp/workspace
     steps:
       - checkout
@@ -38,20 +38,15 @@ jobs:
             ssh -o "StrictHostKeyChecking=no" ec2-user@ec2-3-125-46-70.eu-central-1.compute.amazonaws.com <<'ENDSSH'
             /bin/bash bin/deploy_image.sh
             docker ps
-  start:
-    docker:
-      - image: circleci/openjdk:11-jdk
-    steps:
-      - checkout
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - start
+      - build
       - docker-image-and-publish:
           requires:
-            - start
+            - build
       - deploy:
           requires:
             - docker-image-and-publish
