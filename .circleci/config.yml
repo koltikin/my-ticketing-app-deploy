@@ -1,4 +1,4 @@
-version: 2.1
+version: 2
 jobs:
   build:
     docker:
@@ -38,11 +38,9 @@ jobs:
             ssh -o "StrictHostKeyChecking=no" ec2-user@ec2-3-125-46-70.eu-central-1.compute.amazonaws.com <<'ENDSSH'
             /bin/bash bin/deploy_image.sh
             docker ps
-            ENDSSH
-
 
 workflows:
-  version: 2.1
+  version: 2
   build_and_test:
     jobs:
       - docker-image-and-publish:
