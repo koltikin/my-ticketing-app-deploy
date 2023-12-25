@@ -2,6 +2,7 @@ version: '3.8'
 services:
   postgres_sql:
     image: postgres:latest
+    container_name: postgres_sql
     restart: always
     environment:
       POSTGRES_DB: ticketing_app_db
@@ -9,9 +10,9 @@ services:
       POSTGRES_PASSWORD: Bismillah
     ports:
       - "5433:5432"
-      - "5432:5432"
+#      - "5432:5432"
     volumes:
-      - ticketing_app_data:/var/lib/postgresql/data
+      - ticketing_app_data:/var/lib/postgres/data
     networks:
       - ticketing-app-net
 
@@ -29,7 +30,7 @@ services:
       USER_NAME: ziya
       PASSWORD: Bismillah
     ports:
-      - "8088:8080"
+      - "8088:8080" # This should be 8080 otherwise doesn't know
     depends_on:
       - postgres_sql
     networks:
