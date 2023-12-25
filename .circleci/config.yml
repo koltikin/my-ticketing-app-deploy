@@ -39,7 +39,6 @@ jobs:
             /bin/bash bin/deploy_image.sh
             echo "Listing Docker containers:"
             docker ps
-            ENDSSH
 
 
 
