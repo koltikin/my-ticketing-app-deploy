@@ -34,7 +34,7 @@ jobs:
           command: |
             ssh -o "StrictHostKeyChecking=no" ubuntu@ec2-3-79-115-173.eu-central-1.compute.amazonaws.com <<'ENDSSH'
             /bin/bash bin/deploy_image.sh
-            docker ps
+            ENDSSH
 
 
 workflows:
