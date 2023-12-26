@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/openjdk11:latest
+      - image: circleci/openjdk17:latest
     working_directory: /tmp/workspace
     steps:
       - checkout
