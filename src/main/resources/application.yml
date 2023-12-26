@@ -1,7 +1,6 @@
 spring:
   datasource:
     url: jdbc:postgresql://mydbinstance.clq8wogyshd2.eu-central-1.rds.amazonaws.com:5432/ticketing_app_db
-    #url: jdbc:postgresql://${HOSTNAME}:5432/${DB_NAME}
     username: ziya
     password: Bismillah
     driver-class-name: org.postgresql.Driver
@@ -40,4 +39,4 @@ spring:
     init:
       mode: always
 
-host-service-port: 8080
+host-service-port: ec2-3-125-46-70.eu-central-1.compute.amazonaws.com:8080

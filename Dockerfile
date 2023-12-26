@@ -4,9 +4,6 @@ COPY  .  .
 ENTRYPOINT ["mvn","spring-boot:run"]
 
 
-
-
-
 #FROM openjdk:17-jdk
 #COPY ./target/ticketing-app.jar /app/ticketing-app.jar
 #COPY ./target/classes/templates /app/src/main/resources/templates
