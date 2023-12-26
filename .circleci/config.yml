@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Execute Deployment script
           command: |
-            chmod 400 "my_ticketing_app_key.pem"
+            chmod 400 "./my_ticketing_app_key.pem"
             ssh -i "./my_ticketing_app_key.pem" ubuntu@ec2-52-29-40-50.eu-central-1.compute.amazonaws.com <<'ENDSSH'
             /bin/bash bin/deploy_image.sh
             docker ps
