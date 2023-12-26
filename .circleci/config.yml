@@ -32,8 +32,8 @@ jobs:
     steps:
       - run:
           name: Execute Deployment script
-          command: |
-            chmod 400 "ticketing_app_key.pem"
+          command:
+#            chmod 400 "ticketing_app_key.pem"
             ssh -i "ticketing_app_key.pem" ec2-user@ec2-3-125-46-70.eu-central-1.compute.amazonaws.com
 #            ssh -vvv -o "StrictHostKeyChecking=no" ec2-user@ec2-3-125-46-70.eu-central-1.compute.amazonaws.com <<'ENDSSH'
             echo "Executing deploy_image.sh"
