@@ -32,15 +32,10 @@ jobs:
     steps:
       - run:
           name: Execute Deployment script
-          command:
-            ssh -v -o "StrictHostKeyChecking=no" ec2-user@ec2-3-125-46-70.eu-central-1.compute.amazonaws.com <<'ENDSSH'
-            echo "Executing deploy_image.sh"
+          command: |
+            ssh -o "StrictHostKeyChecking=no" ec2-user@ec2-3-125-46-70.eu-central-1.compute.amazonaws.com <<'ENDSSH'
             /bin/bash bin/deploy_image.sh
-            echo "Listing Docker containers:"
             docker ps
-
-
-
 
 
 workflows:
