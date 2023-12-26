@@ -40,4 +40,4 @@ spring:
     init:
       mode: always
 
-host-service-port: ${SERVICE_PORT}
+host-service-port: 8080

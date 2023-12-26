@@ -6,7 +6,7 @@ COPY ./target/classes/messages /app/src/main/resources/messages
 COPY ./target/classes/db /app/src/main/resources/db
 COPY ./target/classes/data.sql /app/src/main/resources/data.sql
 #COPY ./target/classes/application.properties /app/src/main/resources/application.yml
-#EXPOSE 8080 // we difinde in the docker compose file so it no need to exposee
+EXPOSE 8080 // we difinde in the docker compose file so it no need to exposee
 WORKDIR /app
 
 CMD ["java","-jar","ticketing-app.jar"]

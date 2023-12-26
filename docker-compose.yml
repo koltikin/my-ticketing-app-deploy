@@ -30,7 +30,7 @@ services:
       USER_NAME: ziya
       PASSWORD: Bismillah
     ports:
-      - "8088:8080" # This should be 8080 otherwise doesn't know
+      - "8080:8080" # This should be 8080 otherwise doesn't know
     depends_on:
       - postgres_sql
     networks:
