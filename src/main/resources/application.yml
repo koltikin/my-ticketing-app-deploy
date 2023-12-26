@@ -39,4 +39,4 @@ spring:
     init:
       mode: always
 
-host-service-port: ec2-3-125-46-70.eu-central-1.compute.amazonaws.com:8080
+host-service-port: http://ec2-3-79-115-173.eu-central-1.compute.amazonaws.com:8080
