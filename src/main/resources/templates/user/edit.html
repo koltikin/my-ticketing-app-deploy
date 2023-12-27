@@ -85,7 +85,7 @@
                                             <div class="col-sm-6 col-md-6">
                                                 <div class="form-group">
                                                     <label for="phonenumber" class="col-form-label">Phone Number</label>
-                                                    <input id="phonenumber" type="tel" placeholder="phone number" th:field="*{phone}" class="form-control">
+                                                    <input id="phonenumber" type="tel" placeholder="05012345678" th:field="*{phone}" class="form-control">
 
                                                     <div class="invalid-feedback" th:if="${#fields.hasErrors('phone')}">
                                                         <ul>
@@ -153,7 +153,7 @@
                                                 <div class="form-group">
                                                     <label class="col-form-label">Choose a Role</label>
                                                     <select name="role" th:field="*{role}" class="custom-select">
-                                                        <option  th:value = "''" th:text="Select"></option>
+<!--                                                        <option  th:value = "''" th:text="Select"></option>-->
                                                         <option  th:each="role:${roles}" th:value="${role.id}" th:text="${role.description}"></option>
                                                     </select>
                                                 </div>

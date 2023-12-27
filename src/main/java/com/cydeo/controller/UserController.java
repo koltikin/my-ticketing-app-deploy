@@ -75,9 +75,9 @@ public class UserController {
     public String userUpdate(@PathVariable("userName") String username, Model model){
 
         model.addAttribute("user",userService.findById(username));
-        model.addAttribute("roles",roleService.findAll());
+        model.addAttribute("roles",roleService.addUserRoles(username));
         model.addAttribute("userList",userService.findAll());
-        model.addAttribute("userStatuses", UserStatus.values());
+        model.addAttribute("userStatuses", userService.addUserStatus(username));
 
         return "/user/update";
     }
@@ -106,7 +106,7 @@ public class UserController {
     public String userEdit(Model model){
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         model.addAttribute("user",userService.findById(username));
-        model.addAttribute("roles",roleService.findAll());
+        model.addAttribute("roles",roleService.addUserRoles(username));
 
         return "/user/edit";
     }

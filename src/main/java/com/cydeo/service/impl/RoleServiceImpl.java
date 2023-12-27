@@ -22,7 +22,6 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public List<RoleDTO> findAll() {
         List<Role> roleList = repository.findAll();
-
         return roleList.stream()
                 .map(roleMapper::convertToDto)
                 .collect(Collectors.toList());
@@ -47,5 +46,14 @@ public class RoleServiceImpl implements RoleService {
     @Override
     public void delete(Long Id) {
 
+    }
+
+    @Override
+    public List<RoleDTO> addUserRoles(String username) {
+        if (username.equals("cydeo.ticketing@gmail.com")) {
+            return List.of(userService.findById(username).getRole());
+        }
+        return repository.findAll().stream().map(roleMapper::convertToDto)
+                .collect(Collectors.toList());
     }
 }
