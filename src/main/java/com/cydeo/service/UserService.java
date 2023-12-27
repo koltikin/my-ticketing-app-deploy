@@ -1,5 +1,6 @@
 package com.cydeo.service;
 import com.cydeo.dto.UserDTO;
+import com.cydeo.enums.UserStatus;
 
 import java.util.List;
 
@@ -30,4 +31,5 @@ public interface UserService extends CrudService<UserDTO,String>{
 
     Boolean isUserActive(String username);
 
+    List<UserStatus> addUserStatus(String username);
 }

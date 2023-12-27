@@ -9,6 +9,7 @@ import com.cydeo.dto.UserDTO;
 import com.cydeo.entity.AccountConfirmation;
 import com.cydeo.entity.User;
 import com.cydeo.entity.UserResetPassWord;
+import com.cydeo.enums.UserStatus;
 import com.cydeo.mapper.UserMapper;
 import com.cydeo.service.EmailService;
 import com.cydeo.service.ProjectService;
@@ -20,7 +21,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.sql.Array;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -79,10 +83,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(UserDTO dto) {
+        if (dto.getUserName().equals("cydeo.ticketing@gmail.com")) dto.setPassWord("Abc1");
         User old_user = repository.findByUserNameAndIsDeleted(dto.getUserName(), false);
         User updatedUser = mapper.convertToEntity(dto);
         updatedUser.setId(old_user.getId());
-
         if (dto.getPassWord() == null) {
             updatedUser.setPassWord(old_user.getPassWord());
         } else {
@@ -100,14 +104,6 @@ public class UserServiceImpl implements UserService {
         if (username.equals("cydeo.ticketing@gmail.com")) return;
         if (checkIfUserCanBeDeleted(user)) {
             user.setUserName(user.getUserName() + '-' + LocalDateTime.now());
-//            if (user.getRole().getDescription().equals("Employee")){
-//                taskService.listAllTasksByEmployee(user)
-//                        .forEach(task -> task.setIsDeleted(true));
-//            }
-//            if (user.getRole().getDescription().equals("Manager")){
-//                projectService.listAllProjectByManager(user)
-//                        .forEach(prj -> prj.setIsDeleted(true));
-//            }
             user.setIsDeleted(true);
             repository.save(user);
         }
@@ -330,5 +326,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Boolean isUserActive(String username) {
         return repository.findByUserNameAndIsDeleted(username,false).isEnabled();
+    }
+
+    @Override
+    public List<UserStatus> addUserStatus(String username) {
+        if (username.equals("cydeo.ticketing@gmail.com")) return List.of(UserStatus.TRUE);
+        return List.of(UserStatus.values());
     }
 }
