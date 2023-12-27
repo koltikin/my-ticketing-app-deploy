@@ -97,6 +97,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void delete(String username) {
         User user = repository.findByUserNameAndIsDeleted(username, false);
+        if (username.equals("cydeo.ticketing@gmail.com")) return;
         if (checkIfUserCanBeDeleted(user)) {
             user.setUserName(user.getUserName() + '-' + LocalDateTime.now());
 //            if (user.getRole().getDescription().equals("Employee")){
