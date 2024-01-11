@@ -5,12 +5,11 @@ import com.cydeo.entity.common.UserPrincipal;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
 
-public class BaseEntityListener extends AuditingEntityListener {
+public class BaseEntityListener {
 
     @PrePersist
     protected void onPrePersist(BaseEntity baseEntity){
