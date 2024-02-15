@@ -86,7 +86,7 @@
   transition: 0.3s;
 }
 
-input:focus{
+.input-container input:focus,.custom-input-field input:focus{
   border: 1px solid #635dff;
   background: #ffffff;
   outline: none;
@@ -95,8 +95,8 @@ input:focus{
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset; /* Override background color */
 }
-input:focus ~ label,
-input:valid ~ label{
+.input-container input:focus ~ label, .custom-input-field input:focus ~ label,
+.input-container input:valid ~ label,.custom-input-field input:valid ~ label {
   top: 10%;
   left: 8px;
   font-size: 14px;
